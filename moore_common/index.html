@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `moore_common` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, moore_common">
+
+    <title>moore_common - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Crate moore_common</p><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'moore_common', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>moore_common</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/moore_common/lib.rs.html#3-47' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>This crate contains the fundamental utilities used to by the rest of the
+moore compiler.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::<a class="mod" href="./id/index.html">id</a>::<a class="struct" href="../moore_common/id/struct.NodeId.html" title="struct moore_common::id::NodeId">NodeId</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="errors/index.html"
+                                  title='mod moore_common::errors'>errors</a></td>
+                           <td class='docblock-short'>
+                                <p>Utilities to implement diagnostics and error reporting facilities.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="grind/index.html"
+                                  title='mod moore_common::grind'>grind</a></td>
+                           <td class='docblock-short'>
+                                <p>This module provides an abstraction similar to iterators. Elements are
+produced in one direction, while errors bubble backwards until they are
+vented. This allows for complex transformation chains such as lexical
+analyzers and parsers to be constructed, where errors, warnings, or notices
+might be emitted without disturbing the transformation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="id/index.html"
+                                  title='mod moore_common::id'>id</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="lexer/index.html"
+                                  title='mod moore_common::lexer'>lexer</a></td>
+                           <td class='docblock-short'>
+                                <p>Lexer utilities.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="name/index.html"
+                                  title='mod moore_common::name'>name</a></td>
+                           <td class='docblock-short'>
+                                <p>A name table that internalizes all names presented to it and allows for them
+to be referred to by a lightweight tag. This structure is heavily inspired
+by the interner used in the Rust compiler.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="score/index.html"
+                                  title='mod moore_common::score'>score</a></td>
+                           <td class='docblock-short'>
+                                <p>This module implements the scoreboard building blocks. Scoreboards are the
+driving mechanism behind moore. They keep track of the results of each
+compilation step for every node in the graph. Each node can be accessed in a
+type safe manner by its ID.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="source/index.html"
+                                  title='mod moore_common::source'>source</a></td>
+                           <td class='docblock-short'>
+                                <p>A global source file table that assigns an opaque ID to each processed
+source file. This helps keeping the source location lean and allow for
+simple querying of information.</p>
+                           </td>
+                       </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.node_ref.html"
+                                  title='macro moore_common::node_ref'>node_ref</a></td>
+                           <td class='docblock-short'>
+                                <p>Create a new node reference.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.node_ref_group.html"
+                                  title='macro moore_common::node_ref_group'>node_ref_group</a></td>
+                           <td class='docblock-short'>
+                                <p>Create a new group of node references.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="macro" href="macro.node_storage.html"
+                                  title='macro moore_common::node_storage'>node_storage</a></td>
+                           <td class='docblock-short'>
+                                <p>Create a new table that implements the <code>NodeStorage</code> trait.</p>
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Session.html"
+                                  title='struct moore_common::Session'>Session</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.SessionOptions.html"
+                                  title='struct moore_common::SessionOptions'>SessionOptions</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "moore_common";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

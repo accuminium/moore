@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `BufferedLexer` struct in crate `moore_common`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, BufferedLexer">
+
+    <title>moore_common::lexer::BufferedLexer - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct BufferedLexer</p><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.peek">peek</a><a href="#method.push">push</a><a href="#method.pop">pop</a><a href="#method.inner">inner</a><a href="#method.inner_mut">inner_mut</a></div></div><p class='location'><a href='../index.html'>moore_common</a>::<wbr><a href='index.html'>lexer</a></p><script>window.sidebarCurrent = {name: 'BufferedLexer', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>moore_common</a>::<wbr><a href='index.html'>lexer</a>::<wbr><a class="struct" href=''>BufferedLexer</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/moore_common/lexer.rs.html#292-297' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct BufferedLexer&lt;T&gt; { /* fields omitted */ }</pre><div class='docblock'><p>A buffered lexer that allows tokens to be peeked at before they are actually
+consumed.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a>&gt; <a class="struct" href="../../moore_common/lexer/struct.BufferedLexer.html" title="struct moore_common::lexer::BufferedLexer">BufferedLexer</a>&lt;T&gt;</code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#299-356' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(inner: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="trait" href="../../moore_common/lexer/trait.Lexer.html" title="trait moore_common::lexer::Lexer">Lexer</a>&lt;T&gt;&gt;, eof: T) -&gt; <a class="struct" href="../../moore_common/lexer/struct.BufferedLexer.html" title="struct moore_common::lexer::BufferedLexer">BufferedLexer</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#301-308' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Create a new buffered lexer.</p>
+</div><h4 id='method.peek' class="method"><span id='peek.v' class='invisible'><code>pub fn <a href='#method.peek' class='fnname'>peek</a>&lt;'td&gt;(&amp;mut self, offset: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <a class="type" href="../../moore_common/errors/type.DiagResult.html" title="type moore_common::errors::DiagResult">DiagResult</a>&lt;'td, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#312-330' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Peek at a token not yet consumed. This function merely returns a
+reference to said token. Use <code>pop()</code> to advance the lexer.</p>
+</div><h4 id='method.push' class="method"><span id='push.v' class='invisible'><code>pub fn <a href='#method.push' class='fnname'>push</a>(&amp;mut self, token: T)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#335-337' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Insert a token in front of the stream such that it becomes the next
+token to be returned from <code>peek(0)</code> or <code>pop()</code>.</p>
+</div><h4 id='method.pop' class="method"><span id='pop.v' class='invisible'><code>pub fn <a href='#method.pop' class='fnname'>pop</a>&lt;'td&gt;(&amp;mut self) -&gt; <a class="type" href="../../moore_common/errors/type.DiagResult.html" title="type moore_common::errors::DiagResult">DiagResult</a>&lt;'td, T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#341-347' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Consume and return the current token. This is the same token that would
+be returned by <code>peek(0)</code>.</p>
+</div><h4 id='method.inner' class="method"><span id='inner.v' class='invisible'><code>pub fn <a href='#method.inner' class='fnname'>inner</a>(&amp;self) -&gt; &amp;<a class="trait" href="../../moore_common/lexer/trait.Lexer.html" title="trait moore_common::lexer::Lexer">Lexer</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#349-351' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.inner_mut' class="method"><span id='inner_mut.v' class='invisible'><code>pub fn <a href='#method.inner_mut' class='fnname'>inner_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="trait" href="../../moore_common/lexer/trait.Lexer.html" title="trait moore_common::lexer::Lexer">Lexer</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#353-355' title='goto source code'>[src]</a></span></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "moore_common";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

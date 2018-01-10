@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `AccumulatingReader` struct in crate `moore_common`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, AccumulatingReader">
+
+    <title>moore_common::lexer::AccumulatingReader - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct AccumulatingReader</p><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.refill">refill</a><a href="#method.slice">slice</a><a href="#method.rem_slice">rem_slice</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Reader">Reader</a></div></div><p class='location'><a href='../index.html'>moore_common</a>::<wbr><a href='index.html'>lexer</a></p><script>window.sidebarCurrent = {name: 'AccumulatingReader', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>moore_common</a>::<wbr><a href='index.html'>lexer</a>::<wbr><a class="struct" href=''>AccumulatingReader</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/moore_common/lexer.rs.html#25-31' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct AccumulatingReader { /* fields omitted */ }</pre>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../moore_common/lexer/struct.AccumulatingReader.html" title="struct moore_common::lexer::AccumulatingReader">AccumulatingReader</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#33-102' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(rd: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html" title="trait std::io::Read">Read</a>&gt;) -&gt; <a class="struct" href="../../moore_common/lexer/struct.AccumulatingReader.html" title="struct moore_common::lexer::AccumulatingReader">AccumulatingReader</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#34-42' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.refill' class="method"><span id='refill.v' class='invisible'><code>pub fn <a href='#method.refill' class='fnname'>refill</a>(&amp;mut self, min_len: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#49-90' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Grow and fill the internal buffer such that at least min_len characters
+are present, or the end of the file has been reached. This function may
+shift the buffer contents around, in which case previous buffer indices
+become invalid. Recalculate all indices derived from <code>base</code>, <code>pos</code>, or
+<code>tail</code> after a call to this function.</p>
+</div><h4 id='method.slice' class="method"><span id='slice.v' class='invisible'><code>pub fn <a href='#method.slice' class='fnname'>slice</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#93-95' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return a slice of the consumed bytes.</p>
+</div><h4 id='method.rem_slice' class="method"><span id='rem_slice.v' class='invisible'><code>pub fn <a href='#method.rem_slice' class='fnname'>rem_slice</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#99-101' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return a slice of the remaining bytes, starting at the last call to
+clear().</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Reader' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../moore_common/lexer/trait.Reader.html" title="trait moore_common::lexer::Reader">Reader</a> for <a class="struct" href="../../moore_common/lexer/struct.AccumulatingReader.html" title="struct moore_common::lexer::AccumulatingReader">AccumulatingReader</a></code><a href='#impl-Reader' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#104-145' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.peek' class="method"><span id='peek.v' class='invisible'><code>fn <a href='../../moore_common/lexer/trait.Reader.html#tymethod.peek' class='fnname'>peek</a>(&amp;mut self, off: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.char.html">char</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#108-126' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the value of the byte that is <code>off</code> bytes away from the current
+position in the input file. If the <code>off</code> lies beyond the end of file,
+<code>None</code> is returned.</p>
+</div><h4 id='method.consume' class="method"><span id='consume.v' class='invisible'><code>fn <a href='../../moore_common/lexer/trait.Reader.html#tymethod.consume' class='fnname'>consume</a>(&amp;mut self, amt: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#130-132' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Consume the next <code>amt</code> bytes of the input. All consumed bytes since the
+last <code>clear()</code> can be accessed via <code>slice()</code> or <code>to_string()</code>.</p>
+</div><h4 id='method.clear' class="method"><span id='clear.v' class='invisible'><code>fn <a href='../../moore_common/lexer/trait.Reader.html#tymethod.clear' class='fnname'>clear</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#135-137' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Clear the consumed bytes.</p>
+</div><h4 id='method.to_string' class="method"><span id='to_string.v' class='invisible'><code>fn <a href='../../moore_common/lexer/trait.Reader.html#tymethod.to_string' class='fnname'>to_string</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/moore_common/lexer.rs.html#140-144' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Convert the consumed bytes to a String.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "moore_common";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
